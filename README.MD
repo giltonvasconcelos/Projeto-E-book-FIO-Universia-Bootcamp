@@ -18,6 +18,7 @@
 </p>
 
 # Projeto EBOOK Gerado por I.A.s
+Tema: "Transformação Digital Responsável no Serviço Público"
 
 
  > ℹ️ **NOTE:** Este é o repositório desenvolvido durante o curso "Universia - Fundamentos de IA Generativa" da plataforma da [DIO](https://dio.me) cujo objetivo foi criar um E-book com ajuda das I.A.s
@@ -25,7 +26,7 @@
 Projeto com o objetivo de gerar um ebook digital com as facilidades das ferramentas de IA. todos os prompts
 seguem abaixo.
 
-<a href="https://github.com/felipeAguiarCode/prompts-recipe-to-create-a-ebook/blob/main/output/ebook%20-%20css%20jedi%20output.pdf" title="View PDF now"> 📕Clique aqui para ler</a>
+<a href="https://github.com/giltonvasconcelos/prompts-recipe-to-create-a-ebook/blob/main/output/ebook%20-%20css%20jedi%20output.pdf" title="View PDF now"> 📕Clique aqui para ler</a>
 
 ## 💻 Tecnologias utilizadas no projeto
 
@@ -40,9 +41,9 @@ ChatGPT：
 
 |   Ação   | prompt                                                                                                                                                                                                                                                                         |
 | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|  título  | Crie um título de um ebook sobre o tema de css, o ebookk é do nicho de programação e o subnicho é de css, o título deve ser épico e curto, e tenha uma temática de star wars no título, me liste 5 variações de títulos                                                        |
-| conteúdo | Faça um texto para ebook , com foco em CSS, listando os principais seletores CSS com exemplos em código {REGRAS} Explique sempre de uma maneira simples Deixe o texto enxuto, Sempre traga exemplos de código em contextos reais , sempre deixe um título sugestivo por tópico |
-
+|  título  | Crie um título de um ebook com o objetivo de ser a base para uma Capacitação e Treinamento com voltado para Tecnologia e Transformação Digital no Setor Públicom o ebookk é do nicho de educação e formação continuada de profissionais e da população em geral e tem como foco orientar, ensinar, treinar, o título deve ser épico e curto, e tenha uma temática moderna, me liste 5 variações de títulos 
+|
+| conteúdo | Utilize o Conteúdo em anexo para criar pontos que vão ser explanados no conteúdo do E-book Pontos principais, resumos e enfase no que o Curso Completo vai oferecer. O foco é que o E-book seja uma amostra do que o curso vai apresentar em detalhes sem tornar o conteúdo do E-book descartável.
 
 Midjourney：
 
@@ -53,7 +54,7 @@ Midjourney：
 ## ✨ Features
 
 - Conteúdo gerado via ChatGPT
-- Imagens geradas via MidJourney
+- Imagens geradas via NotebookLM
 
 ## 📚 Materiais
 
