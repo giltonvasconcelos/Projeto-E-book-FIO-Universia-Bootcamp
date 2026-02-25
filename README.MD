@@ -26,7 +26,7 @@ Tema: "Transformação Digital Responsável no Serviço Público"
 Projeto com o objetivo de gerar um ebook digital com as facilidades das ferramentas de IA. todos os prompts
 seguem abaixo.
 
-<a href="https://github.com/giltonvasconcelos/prompts-recipe-to-create-a-ebook/blob/main/output/e-book.pdf" title="View PDF now"> 📕Clique aqui para ler</a>
+<a href="https://github.com/giltonvasconcelos/prompts-recipe-to-create-a-ebook/blob/main/output/ebook.pdf" title="View PDF now"> 📕Clique aqui para ler</a>
 
 ## 💻 Tecnologias utilizadas no projeto
 
