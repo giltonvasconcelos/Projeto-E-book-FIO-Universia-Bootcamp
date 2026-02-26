@@ -88,4 +88,5 @@ Utilize os prompts acima nas ferramentas sugeridas para gerar o material base e 
 
 ---
 
-⌨️ com 💜 por [Gilton Vasconcelos](https://github.com/giltonvasconcelos)
+# ⌨️ com 💜 por [Gilton Vasconcelos](https://github.com/giltonvasconcelos)
+Baseado no Projeto https://github.com/felipeAguiarCode/prompts-recipe-to-create-a-ebook por [Felipe Aguiar](https://github.com/felipeAguiarCode)
