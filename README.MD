@@ -77,8 +77,8 @@ Utilize os prompts acima nas ferramentas sugeridas para gerar o material base e 
     <p>&nbsp&nbsp&nbsp<br>
     &nbsp&nbsp&nbsp
    <a href="www.linkedin.com/in/gilton-vasconcelos">LinkedIn</a>&nbsp;
-   <a href="https://github.com/giltonvasconcelos">GitHub</a>&nbsp;|&nbsp;
-   <a href="https://www.instagram.com/gilton__vasconcelos/">Instagram</a>&nbsp;|&nbsp;
+   <a href="https://github.com/giltonvasconcelos">GitHub</a>&nbsp;
+   <a href="https://www.instagram.com/gilton__vasconcelos/">Instagram</a>&nbsp;
 </p>
 </p>
 <br/><br/>
