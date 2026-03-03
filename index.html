@@ -79,21 +79,26 @@
     </div>
 
     <script>
-        // URL direta para o PDF no seu GitHub
-        const EBOOK_URL = 'https://raw.githubusercontent.com';
+        // ✅ URL DIRETA PARA DOWNLOAD DO PDF (Raw GitHub)
+        const EBOOK_URL = 'https://raw.githubusercontent.com/giltonvasconcelos/Projeto-E-book-FIO-Universia-Bootcamp/main/output/ebook.pdf';
 
         async function enviarParaGoogleForms(nome, email) {
-            // URL DE RESPOSTA CORRIGIDA (ID + formResponse)
-            const GOOGLE_FORM_URL = "https://docs.google.com";
+            // ✅ URL DE SUBMISSÃO DO GOOGLE FORMS (formResponse)
+            const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfSHY52HimLYMfaE8zLoATgtv_3lsOYxwHTMOc4Jm3t_efR7w/formResponse";
             
             const formData = new FormData();
-            // IDs ENTRY CORRIGIDOS
-            formData.append("entry.49148383", nome);   
-            formData.append("entry.732638618", email); 
+            
+            // ⚠️ IMPORTANTE: Substitua pelos entry.XXXX reais do SEU formulário
+            // Veja instruções abaixo do código para descobrir os IDs corretos
+            formData.append("entry.49148383", nome);   // ← ID do campo "Nome"
+            formData.append("entry.732638618", email);  // ← ID do campo "E-mail"
 
             return fetch(GOOGLE_FORM_URL, {
                 method: "POST",
                 mode: "no-cors",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
                 body: formData
             });
         }
@@ -101,21 +106,35 @@
         document.getElementById('downloadForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const consentimento = document.getElementById('consentimento').checked;
             const btn = document.getElementById('downloadBtn');
+
+            // Validações
+            if (!nome || !email) {
+                alert("Por favor, preencha todos os campos obrigatórios.");
+                return;
+            }
+            if (!consentimento) {
+                alert("Por favor, aceite os termos para continuar.");
+                return;
+            }
 
             btn.innerHTML = "⏳ Processando...";
             btn.disabled = true;
 
             try {
-                // 1. Envia para o Google Sheets (via Forms)
+                // 1. Envia para o Google Forms
                 await enviarParaGoogleForms(nome, email);
 
-                // 2. Feedback de sucesso
+                // 2. Aguarda processamento (necessário devido ao no-cors)
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                // 3. Feedback de sucesso
                 document.getElementById('successMessage').classList.remove('hidden');
                 
-                // 3. Executa o Download
+                // 4. Executa o Download do PDF
                 const link = document.createElement('a');
                 link.href = EBOOK_URL;
                 link.setAttribute('download', 'ebook-transformacao-digital.pdf');
@@ -123,10 +142,11 @@
                 link.click();
                 document.body.removeChild(link);
 
-                // 4. Reseta o form
+                // 5. Reseta o formulário
                 document.getElementById('downloadForm').reset();
 
             } catch (error) {
+                console.error("Erro no envio:", error);
                 alert("Ocorreu um erro técnico. Tente novamente.");
             } finally {
                 btn.innerHTML = "📥 Baixar e-book agora";
