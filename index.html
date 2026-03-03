@@ -78,60 +78,66 @@
         </div>
     </div>
 
-    <script>
-        const EBOOK_URL = 'https://github.com';
+<script>
+    // 1. URL Direta do arquivo (Corrigida para o link do seu GitHub)
+    const EBOOK_URL = 'https://github.com';
 
-        async function enviarParaGoogleForms(nome, email) {
-            // URL DE RESPOSTA DO SEU FORMULÁRIO
-            const GOOGLE_FORM_URL = "https://docs.google.com";
-            
-            const formData = new FormData();
-            formData.append("entry.49148383", nome);   // Seu ID de Nome
-            formData.append("entry.732638618", email); // Seu ID de E-mail
+    async function enviarParaGoogleForms(nome, email) {
+        // 2. URL de resposta COMPLETA do seu formulário
+        const GOOGLE_FORM_URL = "https://docs.google.com";
+        
+        const formData = new FormData();
+        // IDs que você me passou
+        formData.append("entry.49148383", nome);   
+        formData.append("entry.732638618", email); 
 
-            // Envio silencioso (no-cors)
-            return fetch(GOOGLE_FORM_URL, {
-                method: "POST",
-                mode: "no-cors",
-                body: formData
-            });
-        }
-
-        document.getElementById('downloadForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const btn = document.getElementById('downloadBtn');
-
-            btn.innerHTML = "⏳ Processando...";
-            btn.disabled = true;
-
-            try {
-                // 1. Envia os dados para o Google
-                await enviarParaGoogleForms(nome, email);
-
-                // 2. Mostra mensagem de sucesso
-                document.getElementById('successMessage').classList.remove('hidden');
-                
-                // 3. Inicia o download
-                const link = document.createElement('a');
-                link.href = EBOOK_URL;
-                link.download = 'ebook-transformacao-digital.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-
-                // 4. Limpa o formulário
-                document.getElementById('downloadForm').reset();
-
-            } catch (error) {
-                alert("Ocorreu um erro. Tente novamente.");
-            } finally {
-                btn.innerHTML = "📥 Baixar e-book agora";
-                btn.disabled = false;
-            }
+        // O modo 'no-cors' é obrigatório para o Google Forms
+        return fetch(GOOGLE_FORM_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
         });
-    </script>
+    }
+
+    document.getElementById('downloadForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const btn = document.getElementById('downloadBtn');
+
+        btn.innerHTML = "⏳ Processando...";
+        btn.disabled = true;
+
+        try {
+            // 1. Tenta enviar para o Google
+            await enviarParaGoogleForms(nome, email);
+
+            // 2. Mostra mensagem de sucesso na tela
+            document.getElementById('successMessage').classList.remove('hidden');
+            
+            // 3. Dispara o download do PDF
+            const link = document.createElement('a');
+            link.href = EBOOK_URL;
+            link.setAttribute('download', 'ebook-transformacao-digital.pdf');
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // 4. Limpa os campos do formulário
+            document.getElementById('downloadForm').reset();
+
+        } catch (error) {
+            console.error("Erro na requisição:", error);
+            alert("Ocorreu um erro ao processar. Verifique sua conexão.");
+        } finally {
+            btn.innerHTML = "📥 Baixar e-book agora";
+            btn.disabled = false;
+        }
+    });
+</script>
+
+    
 </body>
 </html>
