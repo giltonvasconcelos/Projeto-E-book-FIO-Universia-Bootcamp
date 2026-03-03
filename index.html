@@ -5,31 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-book Transformação Digital no Serviço Público</title>
     <style>
-        /* Estilos visuais preservados */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(145deg, #f6f9fc 0%, #e9f0f7 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; color: #1a2b3c; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(145deg, #f6f9fc 0%, #e9f0f7 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; color: #1a2b3c; }
         .card { max-width: 1000px; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 48px; box-shadow: 0 30px 60px -20px rgba(26, 43, 60, 0.3); overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid rgba(255,255,255,0.5); }
         .presentation { padding: 48px 40px; background: linear-gradient(135deg, #ffffff 0%, #f8fafd 100%); }
-        .tag { display: inline-block; background: #e1eaf1; color: #1e4b6e; padding: 6px 14px; border-radius: 40px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
-        h1 { font-size: 2.2rem; line-height: 1.3; margin-bottom: 16px; color: #0a1c2c; }
+        .tag { display: inline-block; background: #e1eaf1; color: #1e4b6e; padding: 6px 14px; border-radius: 40px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(30,75,110,0.1); }
+        h1 { font-size: 2.2rem; line-height: 1.3; margin-bottom: 16px; color: #0a1c2c; font-weight: 700; }
         .highlight { color: #1e4b6e; border-bottom: 3px solid rgba(30,75,110,0.15); }
-        .subtitle { font-size: 1.1rem; color: #2d4b65; margin-bottom: 32px; }
+        .subtitle { font-size: 1.1rem; color: #2d4b65; margin-bottom: 32px; line-height: 1.5; }
         .ebook-specs { display: flex; gap: 32px; margin: 32px 0; padding: 24px 0; border-top: 2px dashed #cbd6e3; border-bottom: 2px dashed #cbd6e3; }
         .spec-item { display: flex; flex-direction: column; }
         .spec-value { font-size: 1.8rem; font-weight: 700; color: #0a1c2c; }
+        .spec-label { font-size: 0.9rem; color: #4b6a82; text-transform: uppercase; }
         .topics { list-style: none; margin: 32px 0; }
         .topics li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #1a3a54; }
-        .topics li::before { content: "✓"; background: #1e4b6e; color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; }
+        .topics li::before { content: "✓"; background: #1e4b6e; color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; flex-shrink: 0; }
         .form-section { padding: 48px 40px; background: white; display: flex; flex-direction: column; justify-content: center; }
         .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #1d3b53; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; color: #1d3b53; }
         input { width: 100%; padding: 16px 20px; border: 2px solid #e2eaf1; border-radius: 18px; font-size: 1rem; background: #fbfdff; }
         input:focus { outline: none; border-color: #1e4b6e; box-shadow: 0 0 0 4px rgba(30,75,110,0.1); }
-        .btn-download { width: 100%; padding: 18px; background: #1e4b6e; color: white; border: none; border-radius: 18px; font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.3s; margin-top: 16px; }
+        .btn-download { width: 100%; padding: 18px; background: #1e4b6e; color: white; border: none; border-radius: 18px; font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.3s; margin-top: 16px; box-shadow: 0 10px 20px -8px rgba(30,75,110,0.4); }
         .btn-download:hover { background: #0a3350; transform: translateY(-2px); }
-        .success-message { background: #e4f1e7; color: #1d6f42; padding: 20px; border-radius: 18px; text-align: center; margin-bottom: 24px; border: 1px solid #b8dec6; }
+        .success-message { background: #e4f1e7; color: #1d6f42; padding: 20px; border-radius: 18px; text-align: center; margin-bottom: 24px; font-weight: 600; border: 1px solid #b8dec6; }
         .hidden { display: none; }
-        @media (max-width: 800px) { .card { grid-template-columns: 1fr; } }
+        @media (max-width: 800px) { .card { grid-template-columns: 1fr; border-radius: 32px; } }
     </style>
 </head>
 <body>
@@ -42,7 +42,7 @@
             <div class="ebook-specs">
                 <div class="spec-item"><span class="spec-value">34</span><span class="spec-label">Páginas</span></div>
                 <div class="spec-item"><span class="spec-value">PDF</span><span class="spec-label">Formato</span></div>
-                <div class="spec-item"><span class="spec-value">1.9MB</span><span class="spec-label">Download</span></div>
+                <div class="spec-item"><span class="spec-value">1.9 MB</span><span class="spec-label">Download</span></div>
             </div>
             <ul class="topics">
                 <li>Fundamentos da Transformação</li>
@@ -54,10 +54,10 @@
 
         <div class="form-section">
             <h2>✅ Receba seu e-book</h2>
-            <p style="margin-bottom: 20px;">Preencha para liberar o download imediato.</p>
+            <p style="margin-bottom: 32px; color: #3d5a73;">Preencha os campos para liberar o download.</p>
 
             <div id="successMessage" class="success-message hidden">
-                🎉 Enviado com sucesso! O download começará em instantes.
+                🎉 Dados salvos! O download começará agora.
             </div>
 
             <form id="downloadForm">
@@ -69,75 +69,70 @@
                     <label for="email">Seu melhor e-mail *</label>
                     <input type="email" id="email" required placeholder="maria@exemplo.com">
                 </div>
-                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-                    <input type="checkbox" id="consentimento" required style="width: 20px;">
-                    <label for="consentimento" style="font-size: 0.85rem; font-weight: normal;">Concordo em receber conteúdos educativos.</label>
+                <div style="display: flex; align-items: center; gap: 12px; margin: 24px 0;">
+                    <input type="checkbox" id="consentimento" required style="width: 20px; height: 20px;">
+                    <label for="consentimento" style="margin: 0; font-weight: 400; font-size: 0.9rem;">Concordo em receber conteúdos educativos.</label>
                 </div>
                 <button type="submit" class="btn-download" id="downloadBtn">📥 Baixar e-book agora</button>
             </form>
         </div>
     </div>
 
-<script>
-    // 1. URL Direta do arquivo (Corrigida para o link do seu GitHub)
-    const EBOOK_URL = 'https://github.com';
+    <script>
+        // URL direta para o PDF no seu GitHub
+        const EBOOK_URL = 'https://raw.githubusercontent.com';
 
-    async function enviarParaGoogleForms(nome, email) {
-        // 2. URL de resposta COMPLETA do seu formulário
-        const GOOGLE_FORM_URL = "https://docs.google.com";
-        
-        const formData = new FormData();
-        // IDs que você me passou
-        formData.append("entry.49148383", nome);   
-        formData.append("entry.732638618", email); 
-
-        // O modo 'no-cors' é obrigatório para o Google Forms
-        return fetch(GOOGLE_FORM_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: formData
-        });
-    }
-
-    document.getElementById('downloadForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
-        const btn = document.getElementById('downloadBtn');
-
-        btn.innerHTML = "⏳ Processando...";
-        btn.disabled = true;
-
-        try {
-            // 1. Tenta enviar para o Google
-            await enviarParaGoogleForms(nome, email);
-
-            // 2. Mostra mensagem de sucesso na tela
-            document.getElementById('successMessage').classList.remove('hidden');
+        async function enviarParaGoogleForms(nome, email) {
+            // URL DE RESPOSTA CORRIGIDA (ID + formResponse)
+            const GOOGLE_FORM_URL = "https://docs.google.com";
             
-            // 3. Dispara o download do PDF
-            const link = document.createElement('a');
-            link.href = EBOOK_URL;
-            link.setAttribute('download', 'ebook-transformacao-digital.pdf');
-            link.style.display = 'none';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            const formData = new FormData();
+            // IDs ENTRY CORRIGIDOS
+            formData.append("entry.49148383", nome);   
+            formData.append("entry.732638618", email); 
 
-            // 4. Limpa os campos do formulário
-            document.getElementById('downloadForm').reset();
-
-        } catch (error) {
-            console.error("Erro na requisição:", error);
-            alert("Ocorreu um erro ao processar. Verifique sua conexão.");
-        } finally {
-            btn.innerHTML = "📥 Baixar e-book agora";
-            btn.disabled = false;
+            return fetch(GOOGLE_FORM_URL, {
+                method: "POST",
+                mode: "no-cors",
+                body: formData
+            });
         }
-    });
-</script>
 
-    
+        document.getElementById('downloadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const btn = document.getElementById('downloadBtn');
+
+            btn.innerHTML = "⏳ Processando...";
+            btn.disabled = true;
+
+            try {
+                // 1. Envia para o Google Sheets (via Forms)
+                await enviarParaGoogleForms(nome, email);
+
+                // 2. Feedback de sucesso
+                document.getElementById('successMessage').classList.remove('hidden');
+                
+                // 3. Executa o Download
+                const link = document.createElement('a');
+                link.href = EBOOK_URL;
+                link.setAttribute('download', 'ebook-transformacao-digital.pdf');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                // 4. Reseta o form
+                document.getElementById('downloadForm').reset();
+
+            } catch (error) {
+                alert("Ocorreu um erro técnico. Tente novamente.");
+            } finally {
+                btn.innerHTML = "📥 Baixar e-book agora";
+                btn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
